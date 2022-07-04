@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+
+  .filterDiv {
+    width: 25%;
+    padding: 1em;
+    
+    .FiltersCard {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .grid {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+    padding: 1em;
+  }
+}

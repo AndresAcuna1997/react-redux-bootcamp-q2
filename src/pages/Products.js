@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import styles from "../styles/pages/ProductsPage.module.scss";
+import { ProductCard } from "../components/ProductCard/ProductCard";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
@@ -23,15 +25,27 @@ export const Products = () => {
   return (
     <>
       {loading ? (
-        <h3>Loading</h3>
+        <h4>Loading</h4>
       ) : (
-        <>
-          <ul>
-            {products.map((item) => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
-        </>
+        <div className={styles.container}>
+          <div className={styles.filterDiv}>
+            <div className={styles.FiltersCard}>FIILTERS</div>
+          </div>
+          <div className={styles.grid}>
+            {products.map(
+              ({ id, name, description, images, price, categories }) => (
+                <ProductCard
+                  key={id}
+                  img={images}
+                  title={name}
+                  category={categories}
+                  description={description}
+                  price={price}
+                />
+              )
+            )}
+          </div>
+        </div>
       )}
     </>
   );
