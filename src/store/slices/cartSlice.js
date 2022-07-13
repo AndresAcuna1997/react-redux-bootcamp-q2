@@ -20,13 +20,13 @@ export const cartSlice = createSlice({
   reducers: {
     addProductToCart: (state, action) => {
       const productFound = state.products.find(
-        (product) => product.id == action.payload.id
+        (product) => product.id === action.payload.id
       );
 
       if (productFound) {
         productFound.qty++;
         const index = state.products.findIndex(
-          (product) => product.id == productFound.id
+          (product) => product.id === productFound.id
         );
 
         state.products[index] = productFound;
@@ -49,7 +49,7 @@ export const cartSlice = createSlice({
 
     deleteProduct: (state, action) => {
       state.products = state.products.filter(
-        (product) => product.id != action.payload
+        (product) => product.id !== action.payload
       );
 
       state.totalPrice = calculateFinalPrice(state.products);
