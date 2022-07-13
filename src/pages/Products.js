@@ -15,7 +15,7 @@ export const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <>

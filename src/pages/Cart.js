@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { CartProductCard } from "../components/cartProductCard";
 import styles from "../styles/pages/CartPage.module.scss";
 
 export const Cart = () => {
   const { totalPrice, products } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
 
   return (
     <div>
