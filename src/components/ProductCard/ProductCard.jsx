@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../store/slices/cartSlice";
+
 import "./ProductCard.scss";
 
-export const ProductCard = ({ title, category, description, price, img }) => {
+export const ProductCard = ({
+  title,
+  category,
+  description,
+  price,
+  img,
+  id,
+}) => {
   const [showDesc, setshowDesc] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div className="ProductCard">
@@ -23,7 +34,7 @@ export const ProductCard = ({ title, category, description, price, img }) => {
             );
           })}
         </div>
-        <h3 alt={title}>{title}</h3>
+        <h3 title={title}>{title}</h3>
         <span onClick={() => setshowDesc(!showDesc)}>Description</span>
         {showDesc ? (
           <>
@@ -37,7 +48,14 @@ export const ProductCard = ({ title, category, description, price, img }) => {
       </div>
 
       <div className="btn-div">
-        <button className="addCart-btn">
+        <button
+          className="addCart-btn"
+          onClick={() =>
+            dispatch(
+              addProductToCart({ title, category, description, price, img, id })
+            )
+          }
+        >
           <span className="btn-content">
             Add to cart <BsFillCartPlusFill />
           </span>
