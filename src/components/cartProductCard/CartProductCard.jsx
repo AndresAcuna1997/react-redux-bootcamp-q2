@@ -1,9 +1,9 @@
+import { BsFillTrashFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { deleteProduct, modifyQuantity } from "../../store/slices/cartSlice";
 import styles from "./styles.module.scss";
 
 export const CartProductCard = ({ data }) => {
-
   const dispatch = useDispatch();
   const { category, description, id, img, price, qty, title } = data;
 
@@ -21,12 +21,19 @@ export const CartProductCard = ({ data }) => {
         <p className={styles.description} title={description}>
           {description}
         </p>
-        <small>{category}</small>
+        <small>
+          <b>{category}</b>
+        </small>
       </div>
       <div className={styles.priceDiv}>
-        <h3>${price}</h3>
+        <h2>${price}</h2>
         <input type="number" value={qty} onChange={(e) => handleChange(e)} />
-        <button onClick={() => dispatch(deleteProduct(id))}>Remove</button>
+        <button
+          className={styles.deleteBtn}
+          onClick={() => dispatch(deleteProduct(id))}
+        >
+          Remove <BsFillTrashFill />{" "}
+        </button>
       </div>
     </div>
   );

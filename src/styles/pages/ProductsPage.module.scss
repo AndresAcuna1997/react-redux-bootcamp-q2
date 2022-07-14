@@ -1,16 +1,63 @@
 .container {
   display: flex;
 
-  .filterDiv {
-    width: 25%;
-    padding: 1em;
+  .test {
+    width: 100%;
+    .paginationDiv {
+      display: flex;
+      padding: 2rem;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      margin-top: 3rem;
+      background: white;
+      width: 100%;
+    }
   }
 
   .grid {
-    width: 75%;
+    width: 97%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2em;
     padding: 1em;
+    margin-top: 10rem;
   }
+}
+
+.errProducts {
+  text-align: center;
+}
+
+.selectTemp {
+  /* styling */
+  background-color: white;
+  border: thin solid grey;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.round:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+    calc(100% - 0.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
 }

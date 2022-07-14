@@ -4,7 +4,7 @@ import { CartProductCard } from "../components/cartProductCard";
 import styles from "../styles/pages/CartPage.module.scss";
 
 export const Cart = () => {
-  const { totalPrice, products } = useSelector((state) => state.cart);
+  const { totalPrice = [], products = [] } = useSelector((state) => state.cart);
 
   return (
     <div>
@@ -16,8 +16,14 @@ export const Cart = () => {
           ))}
         </div>
         <div className={styles.totalPriceDiv}>
-          <h2>{totalPrice}</h2>
-          <button>Check out</button>
+          <h2>$ {totalPrice}</h2>
+          <button
+            onClick={() =>
+              console.log(products.length > 0 ? "Go on" : "No items")
+            }
+          >
+            Check out
+          </button>
         </div>
       </div>
     </div>
