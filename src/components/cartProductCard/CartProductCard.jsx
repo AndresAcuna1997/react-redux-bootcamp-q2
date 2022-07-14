@@ -3,6 +3,7 @@ import { deleteProduct, modifyQuantity } from "../../store/slices/cartSlice";
 import styles from "./styles.module.scss";
 
 export const CartProductCard = ({ data }) => {
+
   const dispatch = useDispatch();
   const { category, description, id, img, price, qty, title } = data;
 

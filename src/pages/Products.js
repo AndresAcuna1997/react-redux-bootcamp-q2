@@ -29,7 +29,7 @@ export const Products = () => {
             </div>
           </div>
           <div className={styles.grid}>
-            {products.items?.map(
+            {products?.map(
               ({ id, name, description, images, price, categories }) => (
                 <ProductCard
                   key={id}
