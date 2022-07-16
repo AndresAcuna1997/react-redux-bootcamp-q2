@@ -1,5 +1,6 @@
 .titlePage {
   text-align: center;
+  margin-top: 5rem;
 }
 
 .cartPage {
@@ -21,5 +22,15 @@
     height: min-content;
     padding: 1rem;
     text-align: center;
+
+    .checkOutBtn {
+      background: rgba(206, 2, 2, 0.78);
+      color: white;
+      padding: 1rem 2rem;
+      border: 0px;
+      border-radius: 10px;
+      align-items: center;
+      font-weight: bold;
+    }
   }
 }

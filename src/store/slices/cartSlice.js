@@ -5,7 +5,16 @@ const calculateFinalPrice = (arrProducts) => {
 
   arrProducts.forEach((product) => {
     total += product.price * product.qty;
-    console.log(total);
+  });
+
+  return total;
+};
+
+const calculateFinalTotalItems = (arrProducts) => {
+  let total = 0;
+
+  arrProducts.forEach((product) => {
+    total += product.qty;
   });
 
   return total;
@@ -16,6 +25,8 @@ export const cartSlice = createSlice({
   initialState: {
     products: [],
     totalPrice: 0,
+    totalAmountProducts: 0,
+    orderData: { order: 0, message: "" },
   },
   reducers: {
     addProductToCart: (state, action) => {
@@ -40,7 +51,11 @@ export const cartSlice = createSlice({
     modifyQuantity: (state, action) => {
       state.products.forEach((product) => {
         if (product.id === action.payload.id) {
-          product.qty = action.payload.qty;
+          if (action.payload.qty > 1) {
+            product.qty = action.payload.qty;
+          } else {
+            product.qty = 1;
+          }
         }
       });
 
@@ -54,7 +69,28 @@ export const cartSlice = createSlice({
 
       state.totalPrice = calculateFinalPrice(state.products);
     },
+
+    totalCount: (state, action) => {
+      const count = calculateFinalTotalItems(action.payload);
+      state.totalAmountProducts = count;
+    },
+
+    setOrder: (state, action) => {
+      state.orderData.order = action.payload.order;
+      state.orderData.message = action.payload.message;
+    },
+
+    emptyCart: (state) => {
+      state.products = [];
+      state.totalPrice = 0;
+    },
   },
 });
-export const { addProductToCart, modifyQuantity, deleteProduct } =
-  cartSlice.actions;
+export const {
+  addProductToCart,
+  modifyQuantity,
+  deleteProduct,
+  totalCount,
+  setOrder,
+  emptyCart,
+} = cartSlice.actions;

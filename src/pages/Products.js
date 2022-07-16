@@ -45,7 +45,7 @@ export const Products = () => {
   return (
     <>
       {isLoading ? (
-        <h4>Loading</h4>
+        <h2 className={styles.loading}>Loading...</h2>
       ) : (
         <div className={styles.container}>
           <div className={styles.test}>
@@ -92,9 +92,7 @@ export const Products = () => {
                 defaultValue={category}
                 onChange={changeHandler}
               >
-                <option value="">
-                  <b>Select a category</b>
-                </option>
+                <option value="">Select a category</option>
                 {categories?.map(({ id, name }) => (
                   <option key={id} value={name}>
                     {name}
