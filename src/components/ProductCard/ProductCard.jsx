@@ -35,7 +35,12 @@ export const ProductCard = ({
           })}
         </div>
         <h3 title={title}>{title}</h3>
-        <span onClick={() => setshowDesc(!showDesc)}>Description</span>
+        <span
+          className="descriptionProduct"
+          onClick={() => setshowDesc(!showDesc)}
+        >
+          Description
+        </span>
         {showDesc ? (
           <>
             <p>{description}</p>
