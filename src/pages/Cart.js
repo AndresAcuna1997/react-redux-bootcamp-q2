@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CartProductCard } from "../components/cartProductCard";
 import { createOrderAxios } from "../services";
-import { setOrder, totalCount,emptyCart } from "../store/slices/cartSlice";
+import { setOrder, totalCount, emptyCart } from "../store/slices/cartSlice";
 import styles from "../styles/pages/CartPage.module.scss";
 
 export const Cart = () => {
@@ -17,7 +17,7 @@ export const Cart = () => {
 
   useEffect(() => {
     dispatch(totalCount(products));
-  }, [products]);
+  }, [products]); // eslint-disable-line
 
   const createOrder = (body) => {
     const res = createOrderAxios(body);
